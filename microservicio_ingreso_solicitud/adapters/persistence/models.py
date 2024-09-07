@@ -1,10 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import fields, Schema
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
+from ...enums.enums import Estado, TipoPlan
+from ...extensions import db
 
-from enums.enums import Estado, TipoPlan
-
-db = SQLAlchemy()
 
 class Cliente(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,6 +19,7 @@ class Solicitud(db.Model):
     fecha_fin = db.Column(db.DateTime, nullable=True)
     codigo = db.Column(db.String(50), nullable=False, unique=True)
     cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.id'), nullable=False)
+    fecha_procesamiento = db.Column(db.DateTime, nullable=True)
 
 class Plan(db.Model):
     id = db.Column(db.Integer, primary_key=True)
