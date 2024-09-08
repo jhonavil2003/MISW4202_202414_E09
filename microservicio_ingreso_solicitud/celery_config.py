@@ -1,5 +1,6 @@
 from celery import Celery
 
+
 def make_celery():
     celery = Celery(
         'microservicio_ingreso_solicitud',

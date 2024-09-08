@@ -2,11 +2,14 @@ from ..extensions import db
 from ..adapters.persistence.models import Solicitud
 from datetime import datetime
 from ..celery_config import celery
+import redis
+import json
 
+redis_client = redis.Redis(host='localhost', port=6379, db=1)
 
-@celery.task
-def process_solicitud(solicitud_id):
-    data = "datos estáticos"
-    # Aquí va la lógica para procesar la solicitud
-    print(f"Procesando solicitud con datos: {data}")
-    return f"Solicitud procesada con datos: {data}"
+@celery.task(bind=True)
+def process_solicitud(self, *args, **kwargs):
+    redis_key = f'task-args-{self.request.id}'
+    redis_data = json.dumps({'args': args[0], 'kwargs': kwargs})
+    redis_client.set(redis_key, redis_data)
+    return f"solicitud-generada: {args[0]}"

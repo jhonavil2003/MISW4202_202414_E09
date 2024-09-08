@@ -35,7 +35,7 @@ def monitor_tasks():
         i = celery.control.inspect()
         active_tasks = i.active()
         reserved_tasks = i.reserved()
-        
+    
         tasks = []
         if active_tasks:
             for worker, tasks_list in active_tasks.items():

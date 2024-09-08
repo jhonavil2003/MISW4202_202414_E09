@@ -1,0 +1,5 @@
+
+class Config:
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///abcall.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    PROPAGATE_EXCEPTIONS = True
