@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
-from microservicio_proceso_solicitud.core.services import SolicitudService  
+from microservicio_proceso_solicitud.core.services import IntegracionService  
 
-class SolicitudController(Resource):
+class IntegracionController(Resource):
     def get(self):
-        return SolicitudService.get_all_solicitudes_queue()
+        return IntegracionService.get_all_solicitudes_queue()
