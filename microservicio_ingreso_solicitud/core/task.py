@@ -6,9 +6,7 @@ from ..celery_config import celery
 
 @celery.task
 def process_solicitud(solicitud_id):
-    with celery.app.app_context():
-            solicitud = Solicitud.query.get(solicitud_id)
-            if solicitud:
-                solicitud.fecha_procesamiento = datetime.utcnow()
-                db.session.commit()
-                return f"Solicitud {solicitud_id} procesada."
+    data = "datos estáticos"
+    # Aquí va la lógica para procesar la solicitud
+    print(f"Procesando solicitud con datos: {data}")
+    return f"Solicitud procesada con datos: {data}"
