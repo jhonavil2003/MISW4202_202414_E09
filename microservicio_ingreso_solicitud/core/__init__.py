@@ -1,1 +1,1 @@
-from microservicio_ingreso_solicitud.core import *
+from .task import *

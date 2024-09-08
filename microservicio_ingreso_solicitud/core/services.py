@@ -30,7 +30,8 @@ class SolicitudService:
         solicitud = solicitud_schema.load(data, session=db.session)
         db.session.add(solicitud)
         db.session.commit()
-        process_solicitud.delay(solicitud.id)
+        solicitud_data = solicitud_schema.dump(solicitud)
+        process_solicitud.apply_async(args=[solicitud_data])
         return solicitud_schema.dump(solicitud), 202
 
 class PlanService:
