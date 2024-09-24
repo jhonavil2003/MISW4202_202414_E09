@@ -6,7 +6,3 @@ class LogController(Resource):
     def get(self):
         return LogService.get_all_logs()
     
-class AuthController(Resource):
-    def post(self):
-        data = request.get_json()
-        return AuthService.validate_auth(data)

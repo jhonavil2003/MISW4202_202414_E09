@@ -1,7 +1,7 @@
 from extensions import db
 
-class Log(db.Model):
-    pass
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    
 
-class Auth(db.Model):
-    pass
