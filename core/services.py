@@ -1,13 +1,13 @@
-from core.schemas import LogSchema
+from core.schemas import UserSchema
 from extensions import db
 from adapters.persistence.models import Users
 
-clienteSchema = LogSchema()
+user_schema = UserSchema()
 
-class LogService:
+class UserService:
     @staticmethod
-    def get_all_logs():
-        return [clienteSchema.dump(cliente) for cliente in Users.query.all()]
+    def get_all_users():
+        return [user_schema.dump(user) for user in Users.query.all()]
     
     @staticmethod
     def create_log():
