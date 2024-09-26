@@ -43,7 +43,19 @@ class PermisosController(Resource):
             permisos = PermisosService.get_all_permisos()
             return permisos
 
-     
+
+class GestorController(Resource):
+    def get(self, user_id=None):
+            if user_id:
+    
+                user = UserService.get_user_by_id(user_id)
+                if user:
+                    return user
+                return {'message': 'User not found'}, 404
+            else:
+            
+                users = UserService.get_all_users()
+                return users
     
 
     
