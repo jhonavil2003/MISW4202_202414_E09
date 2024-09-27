@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request
-from core.services import  PermisosService, UserService, RoleService ,UserRolesService
+from core.services import PermisosService, UserService, RoleService,UserRolesService
 
 class UserController(Resource):
  
