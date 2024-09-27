@@ -13,7 +13,7 @@ VALUES
 (2, 'Coordinador', 'Administrador'),
 (3, 'Coordinador Area', 'Administrador'),
 (4, 'Jefe Cuenta', 'Administrador'),
-(5, 'Operador', 'Operario')
+(5, 'Gestor', 'Gestor')
 
 
 
