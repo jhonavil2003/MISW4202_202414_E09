@@ -3,20 +3,15 @@ from flask import request
 from core.services import  PermisosService, UserService, RoleService ,UserRolesService
 
 class UserController(Resource):
- 
-     def get(self, user_id=None):
+    def get(self, user_id=None):
         if user_id:
-  
             user = UserService.get_user_by_id(user_id)
             if user:
                 return user
             return {'message': 'User not found'}, 404
         else:
-          
             users = UserService.get_all_users()
             return users
- 
-    
 
 class RolesController(Resource):
     
@@ -30,8 +25,6 @@ class RolesController(Resource):
             roles = RoleService.get_all_roles()
             return roles
         
-
-
 class PermisosController(Resource):
     def get(self , permiso_id=None):
         if permiso_id:
@@ -42,7 +35,6 @@ class PermisosController(Resource):
         else:
             permisos = PermisosService.get_all_permisos()
             return permisos
-
 
 class GestorController(Resource):
     def get(self, user_id=None):
@@ -57,8 +49,6 @@ class GestorController(Resource):
                 users = UserService.get_all_users()
                 return users
     
-
-    
 class UserRolesController(Resource):
     def get(self , user_role_id=None):
         if user_role_id:
@@ -69,9 +59,3 @@ class UserRolesController(Resource):
         else:
             user_roles = UserRolesService.get_all_user_roles()
             return user_roles
-    
-
-
-    
-    
-    

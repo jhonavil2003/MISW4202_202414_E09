@@ -3,7 +3,7 @@ from extensions import db
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-
+    roles = db.relationship('Roles', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))
 
 class Roles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
